@@ -4,7 +4,7 @@
   "description": "Simple react input control",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/aneldev/dyna-ui-input"
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
