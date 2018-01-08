@@ -1,14 +1,17 @@
 import * as React from "react";
-import {guid} from "dyna-guid";
+import {DynaFieldWrapper, EColor, EStyle} from "dyna-ui-field-wrapper"
 
 import "./style.less";
 import "./color.less";
+
+export {EColor, EStyle}
 
 export interface IDynaInputProps {
   style?: EStyle;
   color?: EColor;
   name: string;
   label?: TContent;
+  required?: TContent;
   value: string;
   validationMessage?: TContent;
   footer?: TContent;
@@ -17,18 +20,6 @@ export interface IDynaInputProps {
 }
 
 export type TContent = string | JSX.Element;
-
-export enum EStyle {
-  INLINE_ROUNDED = "INLINE_ROUNDED",
-}
-
-export enum EColor {
-  WHITE_BLACK = "WHITE_BLACK",
-  WHITE_RED = "WHITE_RED",
-  BLACK_WHITE = "BLACK_WHITE",
-  ORANGE_WHITE = "ORANGE_WHITE",
-  TRANSPARENT_WHITE = "TRANSPARENT_WHITE",
-}
 
 export class DynaInput extends React.Component<IDynaInputProps> {
   static defaultProps: IDynaInputProps = {
@@ -43,7 +34,6 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     onChange: (name: string, value: string) => undefined,
   };
 
-  private internalId: string = guid();
   private inputElement: HTMLInputElement;
 
   private handleChange(value: string) {
@@ -58,7 +48,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
   public render(): JSX.Element {
     const {
       style, color,
-      label, value,
+      label, required, value,
       propsForInput,
       validationMessage, footer,
     } = this.props;
@@ -71,22 +61,24 @@ export class DynaInput extends React.Component<IDynaInputProps> {
 
     return (
       <div className={className} onClick={this.handleContainerClick.bind(this)}>
-        {label ? <div className="dyna-ui-label">
-          <label htmlFor={this.internalId}>{label}</label>
-        </div> : null}
-        <div className="dyna-ui-input-container">
-          <div className="dyna-ui-input-control-container">
-            <input
-              ref={element => this.inputElement = element}
-              value={value}
-              {...propsForInput}
-              id={this.internalId}
-              onChange={e => this.handleChange(e.target.value)}
-            />
-          </div>
-          <div className="dyna-input-validation-message">{validationMessage}</div>
-          <div className="dyna-input-footer">{footer}</div>
-        </div>
+
+        <DynaFieldWrapper
+          className="dyna-input"
+          style={style}
+          color={color}
+          inputElementSelector=".dyna-ui-input-control-element"
+          label={label}
+          required={required}
+          validationMessage={validationMessage}
+          footer={footer}
+        >
+          <input
+            className="dyna-ui-input-control-element"
+            value={value}
+            {...propsForInput}
+            onChange={e => this.handleChange(e.target.value)}
+          />
+        </DynaFieldWrapper>
       </div>
     );
   }

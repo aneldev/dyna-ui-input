@@ -68,6 +68,15 @@ export default {
           } as IDynaInputProps
         },
         {
+          slug: 'inline-rounded-white-black-required',
+          title: 'Inline rounded - White/Black and required test',
+          props: {
+            style: EStyle.INLINE_ROUNDED,
+            color: EColor.WHITE_BLACK,
+            required: <span>{faIcon('info-circle')} <i>required</i></span>,
+          } as IDynaInputProps
+        },
+        {
           slug: 'inline-rounded-white-red',
           title: 'Inline rounded - White/Red',
           props: {
@@ -107,7 +116,7 @@ export default {
             color: EColor.BLACK_WHITE,
             footer: (
               <div
-              style={{border:"1px solid gray", position: "absolute", backgroundColor:"white", padding: "20px 4px"}}
+                style={{border:"1px solid gray", position: "absolute", backgroundColor:"white", padding: "20px 4px"}}
               >custom footer, floated</div>
             )
           } as IDynaInputProps

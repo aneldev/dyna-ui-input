@@ -1,61 +1,16 @@
 .dyna-input {
-	@border-radius: 4px;
 
-	outline: none;
+	.dyna-ui-input-control-element {
+		width: 100%;
+		border: none;
+		width: 100%;
+		font-size: 16px;
+		line-height: 16px;
+		font-weight: bold;
 
-	&.dyna-input {
-
-		&-style- {
-
-			&INLINE_ROUNDED {
-				display: flex;
-				border: 1px solid;
-				border-radius: @border-radius;
-
-				.dyna-ui-label {
-					flex: 1 0 auto;
-					border-right: 1px solid;
-					padding: 8px 16px;
-					font-size: 14px;
-					line-height: 16px;
-					border-radius: @border-radius 0 0 @border-radius;
-
-					label{
-						position: relative;
-						top: 2px;
-					}
-				}
-
-				.dyna-ui-input-container {
-					flex: 1 1 100%;
-					padding: 8px 16px;
-					border-radius: 0 @border-radius @border-radius 0;
-
-					.dyna-ui-input-control-container {
-						width: 100%;
-						input {
-							border: none;
-							width: 100%;
-							font-size: 16px;
-							line-height: 16px;
-							font-weight: bold;
-
-							&:focus{
-								outline: none;
-							}
-						}
-					}
-					.dyna-input-validation-message {
-						font-size: 12px;
-						line-height: 14px;
-					}
-					.dyna-input-footer {
-					}
-				}
-
-			}
-
+		&:focus {
+			outline: none;
 		}
-
 	}
+
 }
