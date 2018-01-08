@@ -34,15 +34,9 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     onChange: (name: string, value: string) => undefined,
   };
 
-  private inputElement: HTMLInputElement;
-
   private handleChange(value: string) {
     const {name, onChange} = this.props;
     onChange && onChange(name, value);
-  }
-
-  private handleContainerClick(): void {
-    this.inputElement.focus();
   }
 
   public render(): JSX.Element {
@@ -60,26 +54,23 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     ].join(' ').trim();
 
     return (
-      <div className={className} onClick={this.handleContainerClick.bind(this)}>
-
-        <DynaFieldWrapper
-          className="dyna-input"
-          style={style}
-          color={color}
-          inputElementSelector=".dyna-ui-input-control-element"
-          label={label}
-          required={required}
-          validationMessage={validationMessage}
-          footer={footer}
-        >
-          <input
-            className="dyna-ui-input-control-element"
-            value={value}
-            {...propsForInput}
-            onChange={e => this.handleChange(e.target.value)}
-          />
-        </DynaFieldWrapper>
-      </div>
+      <DynaFieldWrapper
+        className={className}
+        style={style}
+        color={color}
+        inputElementSelector=".dyna-ui-input-control-element"
+        label={label}
+        required={required}
+        validationMessage={validationMessage}
+        footer={footer}
+      >
+        <input
+          className="dyna-ui-input-control-element"
+          value={value}
+          {...propsForInput}
+          onChange={e => this.handleChange(e.target.value)}
+        />
+      </DynaFieldWrapper>
     );
   }
 }
