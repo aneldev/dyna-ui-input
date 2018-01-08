@@ -18,8 +18,6 @@ export interface IDynaInputProps {
 export declare type TContent = string | JSX.Element;
 export declare class DynaInput extends React.Component<IDynaInputProps> {
     static defaultProps: IDynaInputProps;
-    private inputElement;
     private handleChange(value);
-    private handleContainerClick();
     render(): JSX.Element;
 }
