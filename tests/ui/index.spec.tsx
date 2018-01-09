@@ -7,7 +7,7 @@ configure({adapter: new Adapter()});
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 
-import {DynaInput} from './../../src';
+import {DynaInput} from '../../src';
 
 describe('Home', () => {
   let wrapper;

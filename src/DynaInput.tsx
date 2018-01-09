@@ -47,15 +47,9 @@ export class DynaInput extends React.Component<IDynaInputProps> {
       validationMessage, footer,
     } = this.props;
 
-    const className: string = [
-      'dyna-input',
-      `dyna-input-style-${style}`,
-      `dyna-input-color-${color}`,
-    ].join(' ').trim();
-
     return (
       <DynaFieldWrapper
-        className={className}
+        className="dyna-input"
         style={style}
         color={color}
         inputElementSelector=".dyna-ui-input-control-element"
