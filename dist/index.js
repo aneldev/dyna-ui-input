@@ -1061,12 +1061,7 @@ var DynaInput = /** @class */ (function (_super) {
     DynaInput.prototype.render = function () {
         var _this = this;
         var _a = this.props, style = _a.style, color = _a.color, label = _a.label, required = _a.required, value = _a.value, propsForInput = _a.propsForInput, validationMessage = _a.validationMessage, footer = _a.footer;
-        var className = [
-            'dyna-input',
-            "dyna-input-style-" + style,
-            "dyna-input-color-" + color,
-        ].join(' ').trim();
-        return (React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, { className: className, style: style, color: color, inputElementSelector: ".dyna-ui-input-control-element", label: label, required: required, validationMessage: validationMessage, footer: footer },
+        return (React.createElement(dyna_ui_field_wrapper_1.DynaFieldWrapper, { className: "dyna-input", style: style, color: color, inputElementSelector: ".dyna-ui-input-control-element", label: label, required: required, validationMessage: validationMessage, footer: footer },
             React.createElement("input", __assign({ className: "dyna-ui-input-control-element", value: value }, propsForInput, { onChange: function (e) { return _this.handleChange(e.target.value); } }))));
     };
     DynaInput.defaultProps = {
@@ -5998,7 +5993,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, ".dyna-input-color-TRANSPARENT_WHITE .dyna-ui-input-control-element {\n  color: white;\n  background-color: transparent;\n}\n", ""]);
+exports.push([module.i, ".dyna-input.dyna-ui-field-wrapper-color-TRANSPARENT_WHITE .dyna-ui-input-control-element {\n  color: white;\n  background-color: transparent;\n}\n", ""]);
 
 // exports
 
