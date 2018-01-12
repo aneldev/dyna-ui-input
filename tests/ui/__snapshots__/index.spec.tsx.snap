@@ -6,6 +6,7 @@ exports[`Home has expected content with deep render 1`] = `
   color="WHITE_BLACK"
   footer={null}
   inputElementSelector=".dyna-ui-input-control-element"
+  isLoading={null}
   label={null}
   required={null}
   style="INLINE_ROUNDED"

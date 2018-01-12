@@ -16,7 +16,8 @@
     ".build-dist": "set NODE_ENV=production && webpack --config webpack.dist.config.js",
     "release": "npm run build && npm run publish-push",
     "commit": "git add -u && git add -A && git commit -m",
-    "publish-push": "git add -u && git add -A && git commit -m --amend --no-edit; npm version patch && npm publish && git push && git push --tags",
+    "commit-amend": "git add -u && git add -A && git commit --amend --no-edit",
+    "publish-push": "git add -u && git add -A && git commit --amend --no-edit; npm version patch && npm publish && git push && git push --tags",
     "sync-externals": "node syncExternals.js",
     "test": "jest --coverage --no-cache --runInBand",
     "test-watch": "jest --watch --verbose --runInBand",
@@ -24,7 +25,7 @@
     "reinstall": "rm ./package-lock.json; rm -rf ./node_modules; npm install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anel dev",
   "license": "MIT",
   "dependencies": {
     "dyna-ui-field-wrapper": "^1.0.0",
@@ -85,6 +86,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "./tests/setup/testsetup.js",
     "automock": false,
     "collectCoverage": false,
     "testEnvironment": "jsdom",
