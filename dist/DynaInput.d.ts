@@ -12,7 +12,7 @@ export interface IDynaInputProps {
     value: string;
     validationMessage?: TContent;
     footer?: TContent;
-    propsForInput?: any;
+    inputProps?: any;
     onChange?: (name: string, value: string) => void;
 }
 export declare type TContent = string | JSX.Element;
