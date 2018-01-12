@@ -15,7 +15,7 @@ export interface IDynaInputProps {
   value: string;
   validationMessage?: TContent;
   footer?: TContent;
-  inputProps?: any;
+  inputProps?: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
   onChange?: (name: string, value: string) => void;
 }
 
