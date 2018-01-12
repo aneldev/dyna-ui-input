@@ -15,7 +15,7 @@ export interface IDynaInputProps {
   value: string;
   validationMessage?: TContent;
   footer?: TContent;
-  propsForInput?: any;
+  inputProps?: any;
   onChange?: (name: string, value: string) => void;
 }
 
@@ -29,7 +29,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     label: null,
     value: "",
     validationMessage: null,
-    propsForInput: {},
+    inputProps: {},
     footer: null,
     onChange: (name: string, value: string) => undefined,
   };
@@ -43,7 +43,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     const {
       style, color,
       label, required, value,
-      propsForInput,
+      inputProps,
       validationMessage, footer,
     } = this.props;
 
@@ -61,7 +61,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
         <input
           className="dyna-ui-input-control-element"
           value={value}
-          {...propsForInput}
+          {...inputProps}
           onChange={e => this.handleChange(e.target.value)}
         />
       </DynaFieldWrapper>
