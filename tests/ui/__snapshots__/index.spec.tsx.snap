@@ -8,6 +8,7 @@ exports[`Home has expected content with deep render 1`] = `
   inputElementSelector=".dyna-ui-input-control-element"
   isLoading={null}
   label={null}
+  mode="EDIT"
   required={null}
   style="INLINE_ROUNDED"
   validationMessage={null}
@@ -15,6 +16,7 @@ exports[`Home has expected content with deep render 1`] = `
   <input
     className="dyna-ui-input-control-element"
     onChange={[Function]}
+    readOnly={false}
     value="John"
   />
 </DynaFieldWrapper>
