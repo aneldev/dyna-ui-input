@@ -3,6 +3,7 @@ import {DynaInput, EColor, EStyle, IDynaInputProps} from "../../src";
 
 import {faIcon, IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
+import {EMode} from "dyna-ui-field-wrapper";
 
 require('./showcase.less');
 
@@ -27,14 +28,44 @@ export default {
       faIconName: 'flask',
       title: 'rounded',
       center: true,
-      component: (
-        <DynaInput
-          name="userName"
-          label={<span>{faIcon('user')} User name</span>}
-          value="John"
-          onChange={(name, value) => console.log('input value', name, value)}
-        >dyna button</DynaInput>
-      ),
+      component: (() => {
+
+        interface IMyComponentProps {
+          style?: EStyle;
+          color?: EColor;
+        }
+
+        interface IMyComponentState {
+          value: string;
+        }
+
+        class MyComponent extends React.Component<IMyComponentProps, IMyComponentState> {
+          constructor(props: IDynaInputProps) {
+            super(props);
+            this.state = {value: 'John Smith'};
+          }
+
+          private handleChange(name: string, value: string): void {
+            this.setState({value});
+          }
+
+          public render(): JSX.Element {
+            return (
+              <DynaInput
+                {...this.props}
+                name="userName"
+                label={<span>{faIcon('user')} User name</span>}
+                value={this.state.value}
+                onChange={this.handleChange.bind(this)}
+              >dyna button</DynaInput>
+            )
+          }
+
+        }
+
+        return <MyComponent/>;
+
+      })(),
       wrapperStyle:{
         width: "100%",
         backgroundColor:"grey",
@@ -104,6 +135,15 @@ export default {
           slug: 'inline-rounded-orange-white',
           title: 'Inline rounded - Orange/White',
           props: {
+            style: EStyle.INLINE_ROUNDED,
+            color: EColor.ORANGE_WHITE,
+          } as IDynaInputProps
+        },
+        {
+          slug: 'inline-rounded-orange-white-view-mode',
+          title: 'Inline rounded - Orange/White - View mode',
+          props: {
+            mode: EMode.VIEW,
             style: EStyle.INLINE_ROUNDED,
             color: EColor.ORANGE_WHITE,
           } as IDynaInputProps
