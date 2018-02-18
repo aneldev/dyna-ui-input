@@ -1198,7 +1198,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 				ESize["XSMALL"] = "XSMALL";
 				ESize["SMALL"] = "SMALL";
 				ESize["MEDIUM"] = "MEDIUM";
-				ESize["LARGE"] = "MARGE";
+				ESize["LARGE"] = "LARGE";
 			})(ESize = exports.ESize || (exports.ESize = {}));
 			var DynaFieldWrapper = /** @class */function (_super) {
 				__extends(DynaFieldWrapper, _super);
@@ -1223,10 +1223,16 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 						}
 					}
 				};
+				DynaFieldWrapper.prototype.handleLabelClick = function (event) {
+					var controlElement = this.controlContainerElement.querySelector(this.props.inputElementSelector);
+					if (controlElement) controlElement.focus();
+					this.props.onFocus();
+				};
 				DynaFieldWrapper.prototype.handleContainerClick = function (event) {
 					var controlElement = this.controlContainerElement.querySelector(this.props.inputElementSelector);
 					if (event.target !== event.currentTarget) return;
 					if (controlElement) controlElement.focus();
+					this.props.onFocus();
 				};
 				DynaFieldWrapper.prototype.render = function () {
 					var _this = this;
@@ -1243,7 +1249,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 					    validationMessage = _a.validationMessage,
 					    footer = _a.footer;
 					var className = [cn || '', 'dyna-ui-field-wrapper', "dyna-ui-field-wrapper--mode-" + mode, "dyna-ui-field-wrapper--style-" + style, "dyna-ui-field-wrapper--color-" + color, "dyna-ui-field-wrapper--size-" + size].join(' ').trim();
-					return React.createElement("div", { className: className }, label ? React.createElement("div", { className: "dyna-ui-label", onClick: this.handleContainerClick.bind(this) }, React.createElement("label", { htmlFor: this.internalId }, label)) : null, React.createElement("div", { className: "dyna-ui-field-wrapper-container", onClick: this.handleContainerClick.bind(this) }, React.createElement("div", { className: "dyna-ui-field-wrapper-required", onClick: this.handleContainerClick.bind(this) }, required), React.createElement("div", { className: "dyna-ui-field-wrapper-isLoading", onClick: this.handleContainerClick.bind(this) }, isLoading), React.createElement("div", { className: "dyna-ui-field-wrapper-control-container", ref: function ref(element) {
+					return React.createElement("div", { className: className }, label ? React.createElement("div", { className: "dyna-ui-label", onClick: this.handleLabelClick.bind(this) }, React.createElement("label", { htmlFor: this.internalId }, label)) : null, React.createElement("div", { className: "dyna-ui-field-wrapper-container", onClick: this.handleContainerClick.bind(this) }, React.createElement("div", { className: "dyna-ui-field-wrapper-required", onClick: this.handleContainerClick.bind(this) }, required), React.createElement("div", { className: "dyna-ui-field-wrapper-isLoading", onClick: this.handleContainerClick.bind(this) }, isLoading), React.createElement("div", { className: "dyna-ui-field-wrapper-control-container", ref: function ref(element) {
 							return _this.controlContainerElement = element;
 						}, onClick: this.handleContainerClick.bind(this) }, children), React.createElement("div", { className: "dyna-ui-field-wrapper-validation-message", onClick: this.handleContainerClick.bind(this) }, validationMessage), React.createElement("div", { className: "dyna-ui-field-wrapper-footer", onClick: this.handleContainerClick.bind(this) }, footer)));
 				};
@@ -1259,7 +1265,10 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 					children: null,
 					inputElementSelector: null,
 					validationMessage: null,
-					footer: null
+					footer: null,
+					onFocus: function onFocus() {
+						return undefined;
+					}
 				};
 				return DynaFieldWrapper;
 			}(React.Component);
