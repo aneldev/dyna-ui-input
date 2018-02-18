@@ -1,5 +1,5 @@
 import * as React from "react";
-import { EMode, EColor, EStyle } from "dyna-ui-field-wrapper";
+import { EMode, EColor, EStyle, ESize } from "dyna-ui-field-wrapper";
 import "./style.less";
 import "./color.less";
 export { EColor, EStyle };
@@ -7,6 +7,7 @@ export interface IDynaInputProps {
     style?: EStyle;
     mode?: EMode;
     color?: EColor;
+    size?: ESize;
     name: string;
     label?: TContent;
     required?: TContent;

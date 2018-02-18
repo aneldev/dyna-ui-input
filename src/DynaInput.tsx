@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DynaFieldWrapper, EMode, EColor, EStyle} from "dyna-ui-field-wrapper"
+import {DynaFieldWrapper, EMode, EColor, EStyle, ESize} from "dyna-ui-field-wrapper"
 
 import "./style.less";
 import "./color.less";
@@ -10,6 +10,7 @@ export interface IDynaInputProps {
   style?: EStyle;
   mode?: EMode;
   color?: EColor;
+  size?: ESize;
   name: string;
   label?: TContent;
   required?: TContent;
@@ -27,6 +28,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
     mode: EMode.EDIT,
     style: EStyle.INLINE_ROUNDED,
     color: EColor.WHITE_BLACK,
+    size: ESize.MEDIUM,
     name: '',
     label: null,
     value: "",
@@ -43,7 +45,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
 
   public render(): JSX.Element {
     const {
-      style, color, mode,
+      style, color, mode, size,
       label, required, value,
       inputProps,
       validationMessage, footer,
@@ -55,6 +57,7 @@ export class DynaInput extends React.Component<IDynaInputProps> {
         mode={mode}
         style={style}
         color={color}
+        size={size}
         inputElementSelector=".dyna-ui-input-control-element"
         label={label}
         required={required}

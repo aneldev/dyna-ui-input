@@ -3,7 +3,7 @@ import {DynaInput, EColor, EStyle, IDynaInputProps} from "../../src";
 
 import {faIcon, IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
-import {EMode} from "dyna-ui-field-wrapper";
+import {EMode, ESize} from "dyna-ui-field-wrapper";
 
 require('./showcase.less');
 
@@ -66,11 +66,6 @@ export default {
         return <MyComponent/>;
 
       })(),
-      wrapperStyle:{
-        width: "100%",
-        backgroundColor:"grey",
-        padding: "20px",
-      },
       props: [
         {
           slug: 'inline-rounded-white-black',
@@ -95,6 +90,16 @@ export default {
           props: {
             style: EStyle.INLINE_ROUNDED,
             color: EColor.WHITE_BLACK,
+            validationMessage: <span>{faIcon('exclamation-circle')} user name is required</span>,
+          } as IDynaInputProps
+        },
+        {
+          slug: 'inline-rounded-white-black-validation-message-small',
+          title: 'Inline rounded - White/Black and validation message, small',
+          props: {
+            style: EStyle.INLINE_ROUNDED,
+            color: EColor.WHITE_BLACK,
+            size: ESize.SMALL,
             validationMessage: <span>{faIcon('exclamation-circle')} user name is required</span>,
           } as IDynaInputProps
         },
