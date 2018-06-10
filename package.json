@@ -30,7 +30,7 @@
   "author": "Anel dev",
   "license": "MIT",
   "dependencies": {
-    "dyna-ui-field-wrapper": "^1.9.4",
+    "dyna-ui-field-wrapper": "^1.9.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
