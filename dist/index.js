@@ -563,6 +563,7 @@ var React = __webpack_require__(5);
 var dyna_ui_field_wrapper_1 = __webpack_require__(6);
 exports.EColor = dyna_ui_field_wrapper_1.EColor;
 exports.EStyle = dyna_ui_field_wrapper_1.EStyle;
+exports.ESize = dyna_ui_field_wrapper_1.ESize;
 __webpack_require__(7);
 __webpack_require__(10);
 var DynaInput = /** @class */ (function (_super) {

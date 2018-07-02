@@ -1,6 +1,6 @@
 import {
   DynaInput, IDynaInputProps,
-  EStyle, EColor,
+  EStyle, EColor, ESize,
 } from "./DynaInput";
 
 export {

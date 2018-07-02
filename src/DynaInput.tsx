@@ -4,7 +4,7 @@ import {DynaFieldWrapper, EMode, EColor, EStyle, ESize} from "dyna-ui-field-wrap
 import "./style.less";
 import "./color.less";
 
-export {EColor, EStyle}
+export {EColor, EStyle, ESize}
 
 export interface IDynaInputProps {
   style?: EStyle;
