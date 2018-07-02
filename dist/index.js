@@ -532,6 +532,7 @@ var DynaInput_1 = __webpack_require__(4);
 exports.DynaInput = DynaInput_1.DynaInput;
 exports.EStyle = DynaInput_1.EStyle;
 exports.EColor = DynaInput_1.EColor;
+exports.ESize = DynaInput_1.ESize;
 
 
 /***/ }),
